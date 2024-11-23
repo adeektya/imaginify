@@ -1,36 +1,169 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Imaginify - AI Image Manipulation Platform
 
-## Getting Started
+![Imaginify Banner](/public/dp.png)
 
-First, run the development server:
+## 🌟 Overview
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Imaginify is a powerful AI-powered SaaS platform that offers advanced image manipulation features through an intuitive interface. Built with modern technologies, it provides users with AI-powered tools for image enhancement, manipulation, and generation.
+
+## ✨ Features
+
+### Image Manipulation
+- 🎨 AI Generative Fill
+- 🔄 Image Restoration
+- 🎯 Object Removal
+- 🖼️ Background Removal
+- 🌈 Image Recoloring
+
+### Advanced Search
+- 📷 Content-Based Image Search
+- 🔍 Search images based on visual content
+- 🏷️ Smart tagging and categorization
+
+### User Management
+- 👤 Secure Authentication via Clerk
+- 💳 Credit-based system
+- 📊 User dashboard with usage statistics
+
+### Payment Integration
+- 💰 Secure payments via Stripe
+- 💳 Multiple pricing plans
+- 🔄 Automatic credit renewal
+
+## 🛠️ Technologies Used
+
+- **Frontend**:
+  - Next.js 14 (App Router)
+  - TypeScript
+  - Tailwind CSS
+  - Shadcn UI Components
+
+- **Backend**:
+  - MongoDB (Database)
+  - Cloudinary API (Image Processing)
+  - Clerk (Authentication)
+  - Stripe (Payments)
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js 18+ installed
+- MongoDB database
+- Cloudinary account
+- Clerk account
+- Stripe account
+
+### Environment Variables
+
+Create a `.env.local` file in the root directory:
+
+```env
+# MongoDB
+MONGODB_URL=your_mongodb_url
+
+# Clerk Auth
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
+CLERK_SECRET_KEY=your_clerk_secret_key
+NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
+NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
+NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=/
+NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/
+
+# Cloudinary
+NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME=your_cloud_name
+CLOUDINARY_API_KEY=your_api_key
+CLOUDINARY_API_SECRET=your_api_secret
+
+# Stripe
+STRIPE_SECRET_KEY=your_stripe_secret_key
+STRIPE_WEBHOOK_SECRET=your_stripe_webhook_secret
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=your_stripe_publishable_key
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Clone the repository:
+```bash
+git clone https://https://github.com/adeektya/imaginify
+cd imaginify
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. Install dependencies:
+```bash
+npm install
+```
 
-## Learn More
+3. Run the development server:
+```bash
+npm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📁 Project Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+imaginify/
+├── app/
+│   ├── (auth)/
+│   │   ├── sign-in/
+│   │   └── sign-up/
+│   ├── (root)/
+│   │   ├── credits/
+│   │   ├── profile/
+│   │   └── transformations/
+│   └── layout.tsx
+├── components/
+│   ├── shared/
+│   └── ui/
+├── lib/
+│   ├── actions/
+│   ├── database/
+│   └── utils/
+├── public/
+└── next.config.js
+```
 
-## Deploy on Vercel
+## 💳 Credits System
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Users start with free credits
+- Additional credits can be purchased
+- Credits are consumed for each image transformation
+- Real-time credit balance tracking
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🔒 Authentication Flow
+
+1. User signs up/logs in using Clerk
+2. User profile is created in MongoDB
+3. Credit balance is initialized
+4. Access to transformation features is granted
+
+## 🖼️ Image Transformation Process
+
+1. User uploads image
+2. Image is processed through Cloudinary
+3. AI models apply selected transformations
+4. Transformed image is saved and displayed
+5. Credits are deducted from user balance
+
+## 💰 Payment Processing
+
+1. User selects credit package
+2. Stripe checkout is initiated
+3. Payment is processed securely
+4. Credits are added to user account
+5. Transaction is recorded in database
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## 🙏 Acknowledgments
+
+- Next.js Team
+- Cloudinary Team
+- Shadcn UI
+- MongoDB Team
+- Stripe Team
+- Clerk Team
